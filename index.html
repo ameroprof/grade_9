@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="لعبة أكشن تعليمية تفاعلية لطلاب الصف التاسع عن الجريمة الإلكترونية والتنمر الإلكتروني.">
+  <title>حماة الفضاء الرقمي | لعبة المهارات الرقمية</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" data-action="home" aria-label="العودة إلى البداية">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>حُماة الفضاء الرقمي<small>مهمّة الصف التاسع</small></span>
+      </a>
+      <nav class="top-actions" aria-label="القائمة الرئيسية">
+        <button class="nav-button" data-action="show-records" type="button"><span aria-hidden="true">▤</span> سجلّ الأبطال</button>
+        <span class="connection-pill"><span class="status-dot"></span> لعب آمن</span>
+      </nav>
+    </header>
+
+    <main id="app" tabindex="-1">
+      <p id="app-notice" class="app-notice" role="alert" hidden></p>
+      <section class="screen active" id="home-screen" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-icon">✦</span> مغامرة رقمية تفاعلية · الصف التاسع</p>
+            <h1 id="hero-title">مهمّتك تحمي<br><span>الفضاء الرقمي!</span></h1>
+            <p class="hero-description">جاهز يا بطل؟ انزل بساحة التحدّي، ابنِ درع الخصوصية، ووجّه مقلاعك على فخاخ المحتالين. كل قرار ذكي بقرّبك من حماية أصحابك.</p>
+            <div class="hero-stats" aria-label="معلومات اللعبة">
+              <div><span class="stat-icon">⚡</span><strong>٨</strong><small>تحدّيات سريعة</small></div>
+              <div><span class="stat-icon">🛡</span><strong>٣</strong><small>دروع حماية</small></div>
+              <div><span class="stat-icon">🏆</span><strong>١٠٠٪</strong><small>إنجازك إلك</small></div>
+            </div>
+            <form id="start-form" class="start-card" autocomplete="on">
+              <div class="start-card-heading">
+                <span class="start-card-icon" aria-hidden="true">➜</span>
+                <div><h2>سجّل دخولك للمهمّة</h2><p>اكتب اسمك وشعبتك، ويلا نبلّش!</p></div>
+              </div>
+              <div class="form-row">
+                <label class="field">
+                  <span>اسم الطالب</span>
+                  <input id="student-name" name="studentName" type="text" maxlength="50" placeholder="مثال: يزن أحمد" required autocomplete="name">
+                </label>
+                <label class="field class-field">
+                  <span>الشعبة</span>
+                  <input id="student-class" name="studentClass" type="text" maxlength="24" placeholder="مثال: أ" required>
+                </label>
+              </div>
+              <p id="form-error" class="form-error" role="alert"></p>
+              <button class="button button-primary button-full" type="submit">ادخل ساحة اللعب <span aria-hidden="true">←</span></button>
+              <p class="privacy-note"><span aria-hidden="true">🔒</span> بياناتك ونتيجتك محفوظة على هذا الجهاز فقط.</p>
+            </form>
+          </div>
+          <div class="hero-art" aria-label="رسمة أصلية لبطل رقمي يحمي الفضاء الإلكتروني" role="img">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div><div class="art-spark spark-three">✦</div>
+            <span class="art-chip chip-top">اتصال آمن <b>✓</b></span>
+            <span class="art-chip chip-side">درع الحماية <b>◈</b></span>
+            <svg class="hero-illustration" viewBox="0 0 480 440" role="img" aria-label="مركبة فضائية صغيرة ودرع مضيء">
+              <defs>
+                <linearGradient id="ship" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a2f7ff"/><stop offset=".48" stop-color="#55c8ed"/><stop offset="1" stop-color="#4775d8"/></linearGradient>
+                <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8fffe3"/><stop offset="1" stop-color="#2eb991"/></linearGradient>
+                <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffe38b"/><stop offset="1" stop-color="#ff8e59"/></linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <ellipse cx="244" cy="389" rx="143" ry="20" fill="#152847" opacity=".7"/>
+              <circle cx="98" cy="121" r="4" fill="#fff4b8"/><circle cx="382" cy="104" r="3" fill="#fff"/>
+              <circle cx="339" cy="324" r="5" fill="#8fffe3"/><circle cx="82" cy="298" r="3" fill="#fff"/>
+              <path d="M98 216c26-18 53-12 70 8m-32-57c14-11 28-12 43-5" fill="none" stroke="#5496c5" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+              <g filter="url(#glow)" transform="translate(58 44)">
+                <path d="M286 148a93 93 0 0 0-160 0l-18 31 196 0z" fill="url(#shield)" opacity=".92"/>
+                <path d="M145 143a74 74 0 0 1 122 0" fill="none" stroke="#c3ffef" stroke-width="5" stroke-linecap="round"/>
+                <path d="M199 155l18 20-18 20-18-20z" fill="#effffb"/>
+                <path d="M199 161l11 14-11 14-11-14z" fill="#47ae98"/>
+              </g>
+              <g transform="translate(92 145)">
+                <path d="M130 174 71 231l16-85zm91 0 59 57-16-85z" fill="#527bd8" stroke="#c6e8ff" stroke-width="4" stroke-linejoin="round"/>
+                <path d="m157 211-18 85 40-44 40 44-18-85" fill="url(#flame)"/>
+                <path d="M91 140c29-48 66-78 84-78s55 30 84 78l-17 70H108z" fill="url(#ship)" stroke="#d8fbff" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M175 70v121" stroke="#d6fbff" stroke-width="3" opacity=".7"/>
+                <path d="M110 144c18-34 42-48 65-48s47 14 65 48l-8 39H118z" fill="#183051" stroke="#b2f5ff" stroke-width="4"/>
+                <ellipse cx="175" cy="144" rx="45" ry="25" fill="#8beaff" opacity=".92"/>
+                <circle cx="162" cy="144" r="6" fill="#fff"/><circle cx="188" cy="144" r="6" fill="#fff"/>
+                <path d="M168 158q7 8 14 0" fill="none" stroke="#17456b" stroke-width="3" stroke-linecap="round"/>
+                <path d="M119 182h112" stroke="#d9fdff" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="126" cy="160" r="5" fill="#fff3a0"/><circle cx="224" cy="160" r="5" fill="#fff3a0"/>
+              </g>
+              <g transform="translate(350 214)">
+                <path d="M28 0 52 11l7 25-19 21-25-7L3 27z" fill="#ff9869" stroke="#ffd1b6" stroke-width="3"/>
+                <path d="m20 20 9 9m0-9-9 9" stroke="#623751" stroke-width="4" stroke-linecap="round"/>
+                <path d="M7 55 0 72m55-12 12 10" stroke="#ff9869" stroke-width="4" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <div class="art-caption"><span class="caption-live"></span> الدرع الرقمي جاهز للمهمّة</div>
+          </div>
+        </div>
+        <section class="field-guide" aria-labelledby="guide-title">
+          <div class="guide-heading"><span aria-hidden="true">📡</span><div><h2 id="guide-title">خريطة المهمّة السريعة</h2><p>قبل ما تنزل عالساحة، خذ هالمعلومة معك.</p></div></div>
+          <div class="guide-grid">
+            <article class="guide-card">
+              <h3><span aria-hidden="true">⚠</span> الجريمة الإلكترونية</h3>
+              <p>فعل مخالف للقانون باستخدام شبكة أو جهاز، مثل الاختراق، والبرمجيات الخبيثة، والتصيّد والاحتيال، والتلاعب بالبيانات أو سرقة الهوية.</p>
+              <p class="guide-action"><strong>درعك:</strong> حدّث الجهاز وبرنامج الحماية، اختَر كلمة مرور قوية وفريدة، فعّل التحقّق بخطوتين، وتحقّق من الروابط.</p>
+            </article>
+            <article class="guide-card guide-card-warm">
+              <h3><span aria-hidden="true">🤝</span> التنمّر الإلكتروني</h3>
+              <p>إيذاء أو تهديد أو إهانة عبر الرسائل أو التعليقات أو الألعاب. الغضب وضغط الأقران والرغبة بالسيطرة عوامل ممكن تسهم فيه، بس ما بتبرّر الأذى.</p>
+              <p class="guide-action"><strong>خطّة الإنقاذ:</strong> لا تردّ، احفظ الدليل، احظر وبلّغ، واحكي مع شخص كبير بتثق فيه.</p>
+            </article>
+          </div>
+        </section>
+        <div class="bottom-note"><span>✦</span> اتعلّم، قرّر، واحمِ حالك واللي حواليك <span>✦</span></div>
+      </section>
+
+      <section class="screen" id="game-screen" aria-labelledby="mission-title">
+        <div class="game-heading">
+          <div><p class="eyebrow" id="mission-label">المنطقة الأولى · درع البيانات</p><h1 id="mission-title">مهمّة الفضاء الرقمي</h1></div>
+          <div class="player-chip"><span class="avatar-dot">★</span><span id="player-display"></span></div>
+        </div>
+        <div class="game-hud">
+          <div class="hud-item"><span aria-hidden="true">⚡</span><span>النقاط</span><strong id="score-value">٠</strong></div>
+          <div class="shield-meter"><div class="shield-label"><span>دروعك</span><span id="shield-value">🛡️ 🛡️ 🛡️</span></div><div class="shield-track"><span id="shield-fill"></span></div></div>
+          <div class="hud-item progress-hud"><span aria-hidden="true">🎯</span><span>التحدّي</span><strong id="round-value">١ / ٨</strong></div>
+        </div>
+        <div class="round-progress" aria-label="تقدم التحديات"><span id="round-progress-fill"></span></div>
+        <article class="mission-card">
+          <div class="mission-scene" id="mission-scene" aria-hidden="true">
+            <div class="scene-stars">✦　　·　　✧　　　·　　　✦</div>
+            <div class="scene-grid"></div>
+            <div class="scene-alert" id="scene-alert">تنبيه: رسالة مشبوهة</div>
+            <div class="scene-target" id="scene-target">?</div>
+            <div class="scene-shield" id="scene-shield">⬡</div>
+            <div class="scene-ground"></div>
+          </div>
+          <div class="mission-content">
+            <div class="mission-meta"><span id="topic-badge" class="topic-badge">محقّق الجرائم الرقمية</span><span class="timer-badge">⏱ <span id="timer-value">٣٠</span> ث</span></div>
+            <div class="timer-track"><span id="timer-fill"></span></div>
+            <h2 id="question-text"></h2>
+            <div class="options-list" id="options-list" role="group" aria-label="اختَر الإجابة"></div>
+            <div class="feedback-panel" id="feedback-panel" aria-live="polite" hidden></div>
+            <div class="mission-actions">
+              <p class="keyboard-hint">اختصار: أزرار ١–٤ للاختيار</p>
+              <button id="next-button" class="button button-primary" type="button" hidden>التحدّي اللي بعده <span aria-hidden="true">←</span></button>
+            </div>
+          </div>
+        </article>
+        <p class="safety-tip"><span aria-hidden="true">💡</span><span id="safety-tip-text">ذكّر حالك: كلمة المرور إلك، لا تعطيها لحدا!</span></p>
+      </section>
+
+      <section class="screen" id="results-screen" aria-labelledby="result-title">
+        <div class="result-card">
+          <div class="result-burst" aria-hidden="true">✦</div>
+          <div class="result-medal" id="result-medal" aria-hidden="true">🏆</div>
+          <p class="eyebrow">المهمّة خلصت، يا بطل!</p>
+          <h1 id="result-title">أحسنت يا <span id="result-name"></span>!</h1>
+          <p class="result-subtitle" id="result-subtitle"></p>
+          <div class="result-score"><strong id="final-score">٠٪</strong><span>تقييم فهمك</span></div>
+          <div class="result-stats">
+            <div><span>الإجابات الصح</span><strong id="correct-count">٠ من ٨</strong></div>
+            <div><span>نقاط المغامرة</span><strong id="final-points">٠</strong></div>
+            <div><span>الشعبة</span><strong id="result-class"></strong></div>
+          </div>
+          <div class="learning-feedback" id="learning-feedback"></div>
+          <div class="result-actions">
+            <button id="print-certificate" class="button button-primary" type="button">🏅 اطبع شهادة الإنجاز</button>
+            <button class="button button-quiet" data-action="show-records" type="button">شوف سجلّ الأبطال</button>
+            <button class="button button-quiet" data-action="home" type="button">مهمّة جديدة</button>
+          </div>
+        </div>
+        <div class="certificate-print" id="certificate-print" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen" id="records-screen" aria-labelledby="records-title">
+        <div class="records-heading">
+          <div><p class="eyebrow">لوحة متابعة التعلّم</p><h1 id="records-title">سجلّ الأبطال <span>🏆</span></h1><p>هون بتشوف مين دخل المهمّة وكيف كان أداؤه.</p></div>
+          <button class="button button-primary" data-action="home" type="button">ابدأ مغامرة جديدة <span aria-hidden="true">←</span></button>
+        </div>
+        <div class="records-summary" id="records-summary"></div>
+        <div class="records-table-wrap">
+          <table class="records-table">
+            <thead><tr><th scope="col">الطالب / الشعبة</th><th scope="col">التقييم الكلي</th><th scope="col">الجرائم الإلكترونية</th><th scope="col">التنمّر الإلكتروني</th><th scope="col">الإجابات الصح</th><th scope="col">الحالة</th><th scope="col">التاريخ</th><th scope="col">الشهادة</th></tr></thead>
+            <tbody id="records-body"></tbody>
+          </table>
+          <p id="empty-records" class="empty-records" hidden>لسّه ما في أبطال بالسجل. سجّل اسمك وكون أول واحد! 🚀</p>
+        </div>
+        <p class="local-storage-note">ملاحظة: السجل محفوظ على هالجهاز والمتصفّح. مسح بيانات المتصفّح بمسح السجل.</p>
+      </section>
+
+      <section class="screen certificate-screen" id="certificate-screen" aria-labelledby="certificate-heading">
+        <div class="certificate-actions">
+          <button class="button button-quiet" data-action="show-records" type="button">→ الرجوع للسجل</button>
+          <button id="certificate-print-button" class="button button-primary" type="button">🖨 اطبع الشهادة</button>
+        </div>
+        <h1 id="certificate-heading" class="visually-hidden">شهادة الإنجاز والتقييم</h1>
+        <div class="certificate-preview" id="certificate-preview"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>إعداد وتصميم المعلم: عامر كراجه — مدرسة ذكور وادي السير الإعدادية — الأنروا</span>
+      <span>المصدر التعليمي: المهارات الرقمية، كتاب الطالب للصف التاسع، الصفحات ٣٢–٤٥</span>
+    </footer>
+  </div>
+</body>
+</html>
